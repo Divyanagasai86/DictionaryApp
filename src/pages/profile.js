@@ -24,12 +24,6 @@ import { UserAuth } from "../context/AuthContext";
 import './profile.css';
 const Profile = () => {
     const { googleUser } = UserAuth();
-    const router = useIonRouter();
-
-    // const backButton = () => {
-    //     router.push("/Dashboard");
-    // }
-
     return (
         <IonPage>
             <IonHeader>
@@ -46,7 +40,7 @@ const Profile = () => {
             </IonHeader>
             <IonContent fullscreen className="content-page ">
                 <IonGrid className="dash-grid">
-                    <IonCard className="card-content1">
+                    <IonCard className="pro-card">
                         <IonRow className="profile-heading ion-margin">
                             <IonLabel  >Welcome to User Profile</IonLabel>
                         </IonRow>
@@ -61,8 +55,8 @@ const Profile = () => {
                             <IonLabel>{googleUser.email}</IonLabel>
                         </IonRow>
 
-                        <IonRow className="dash-btn1 ion-margin">
-                            <IonButton className="dash-btn" routerLink="/Dashboard">Logout</IonButton>
+                        <IonRow className="pro-btn1 ion-margin">
+                            <IonButton className="pro-btn" routerLink="/Dashboard">Logout</IonButton>
                         </IonRow>
                     </IonCard>
                 </IonGrid>
