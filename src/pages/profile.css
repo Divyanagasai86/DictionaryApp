@@ -1,0 +1,55 @@
+.card-content {
+    --background: #272333 !important;
+}
+
+.content-page {
+    --background: #1e1b27 !important;
+     height: 100vh;
+}
+
+.dash-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-family: Calibri;
+    height: 100%;
+    padding: 7%;
+   
+    text-align:center;
+}
+
+.card-content1 {
+    --background: #272333 !important;
+    width: 90%;
+    height: 25vh;
+}
+
+.profile-heading {
+    font-size: 18px;
+    justify-content:center;
+}
+
+.dash-btn1{
+    justify-content:center;
+
+}
+.dash-btn{
+    --background: #953CCF;
+}
+.avatar-img{
+    justify-content:center;
+  
+}
+
+.google-email{
+    justify-content:center;
+}
+/* .arrow{
+    margin-right:auto;
+    padding: 10px;
+    width: 20px;
+} */
+
+.text{
+    margin-top: 5px;
+}

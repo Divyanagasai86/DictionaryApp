@@ -28,6 +28,7 @@ import { AuthContextProvider } from './context/AuthContext';
 import Dashboard from './pages/Dashboard';
 // import Find from './pages/Find';
 import Signup from './pages/Signup';
+import Profile from './pages/profile';
 
 import { Browser } from '@capacitor/browser';
 import { App as app } from '@capacitor/app';
@@ -138,6 +139,9 @@ const App = () => {
             </Route>
             <Route exact path="/Dashboard">
               <Dashboard />
+            </Route>
+            <Route exact path="/profile">
+              <Profile />
             </Route>
           </IonRouterOutlet>
         </IonReactRouter>

@@ -18,6 +18,7 @@ const Login = () => {
     const { login } = UserAuth();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const {setGoogleUser} = UserAuth();
     const [ setError] = useState("");
     const [present] = useIonToast();
     const [presentAlert] = useIonAlert();
@@ -55,20 +56,14 @@ const Login = () => {
 
     }
     const signInGoogle = async () => {
-
         GoogleAuth.initialize();
-
         const result = await GoogleAuth.signIn();
-
-
-
         console.log(result);
-
+        setGoogleUser(result);
         if (result) {
             router.push("/Dashboard");
             console.log(result);
         }
-
     }
 
 

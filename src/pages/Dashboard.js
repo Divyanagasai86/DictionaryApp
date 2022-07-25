@@ -1,17 +1,22 @@
-import { IonContent, IonPage, IonRow, IonGrid, IonTabButton, IonIcon, IonTabBar, IonCard, IonCardContent, IonCardTitle, IonCol, IonHeader,
+import { IonContent, IonPage, IonRow, IonGrid, IonTabButton, IonIcon, IonTabBar,IonText, IonCard, IonCardContent, IonCardTitle, IonCol, IonHeader,
      IonToolbar,IonCardSubtitle, IonTitle, IonButton } from "@ionic/react";
 import './Dashboard.css';
-import { bookOutline, heart, search, statsChart} from 'ionicons/icons';
+import { bookOutline, heart, personCircleOutline, search, statsChart,arrowBack} from 'ionicons/icons';
 
 const Dashboard = () => {
 
     return (
         <IonPage>
-            <IonHeader>
                 <IonToolbar color="dark">
-                    <IonTitle color="white">Dashboard</IonTitle>
+                    <IonButton slot="start" fill="clear" routerLink="/Login">
+                        <IonIcon
+                            icon={arrowBack}
+                            style={{ float: "right", fontSize: "20px" }}
+                            color="white">
+                        </IonIcon>
+                    </IonButton>
+                    <IonText className="ion-padding" color="white">Dashboard</IonText>
                 </IonToolbar>
-            </IonHeader>
             <IonContent fullscreen className="content-page">
                 <IonGrid className="dash-grid ">
                     <IonRow>
@@ -66,11 +71,14 @@ const Dashboard = () => {
                 <IonTabButton tab="dashboard" href="/dashboard" className="icon-color">
                     <IonIcon icon={statsChart} />
                 </IonTabButton>
-                <IonTabButton tab="search" href="/search" className="icon-color">
+                <IonTabButton tab="search" className="icon-color">
                     <IonIcon icon={search} />
                 </IonTabButton>
-                <IonTabButton tab="favourites" href="/favourites" className="icon-color" >
+                <IonTabButton tab="favourites" className="icon-color" >
                     <IonIcon icon={heart} />
+                </IonTabButton>
+                <IonTabButton tab="profile" href="/profile" className="icon-color" >
+                    <IonIcon  icon={personCircleOutline} />
                 </IonTabButton>
             </IonTabBar>
         </IonPage>
