@@ -49,7 +49,7 @@ const Dashboard = () => {
                                     <IonRow>
                                     <p>There are 171, 146 words in the English language!</p>
                                     </IonRow>
-                                    <IonButton expand="block" className=" dash-btn ion-margin-top">Search now &rarr;</IonButton>
+                                    <IonButton expand="block" className=" dash-btn ion-margin-top" routerLink="/Find">Search now &rarr;</IonButton>
                                 </IonCardContent>
                             </IonCard>
                         </IonCol>
@@ -83,10 +83,13 @@ const Dashboard = () => {
                 <IonTabButton tab="dashboard" href="/dashboard" className="icon-color">
                     <IonIcon icon={statsChart} />
                 </IonTabButton>
-                <IonTabButton tab="search" className="icon-color">
+                <IonTabButton tab="search" href="/find"  className="icon-color">
                     <IonIcon icon={search} />
                 </IonTabButton>
-                <IonTabButton tab="favourites" className="icon-color" >
+                <IonTabButton tab="Definition" href="/definition" className="icon-color" >
+                    <IonIcon icon={bookOutline} />
+                </IonTabButton>
+                <IonTabButton tab="favourites" href="/favourites" className="icon-color" >
                     <IonIcon icon={heart} />
                 </IonTabButton>
                 <IonTabButton tab="profile" href="/profile" className="icon-color" >

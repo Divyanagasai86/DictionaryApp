@@ -19,7 +19,6 @@ import {
     IonAvatar, IonImg
 } from "@ionic/react";
 import { heart, personCircleOutline, search, statsChart, arrowBack } from 'ionicons/icons';
-import { useState } from 'react';
 import { UserAuth } from "../context/AuthContext";
 import './profile.css';
 const Profile = () => {

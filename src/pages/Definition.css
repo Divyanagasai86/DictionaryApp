@@ -1,0 +1,39 @@
+.content-page{
+    --background:#1e1b27!important;
+    height: 100vh;  
+}
+
+.dash-grid{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; 
+    font-family: Calibri;
+    height: 100%;
+    padding: 7%;
+}
+
+.cardcontent{
+    --background:#272333!important;
+    height: 30px;
+    width: 100%;
+    padding: 10%;
+    margin-bottom: auto;
+}
+
+.def_con {
+    justify-content: center;
+   
+}
+
+.def_text{
+    font-size: 20px;
+}
+
+.play-icon{
+    color:#953cd0;
+    margin-bottom: 22px;
+    height: 60px;
+   
+}
+
+

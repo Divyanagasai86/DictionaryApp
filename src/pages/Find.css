@@ -1,0 +1,35 @@
+.content-page{
+    --background:#1e1b27!important;
+    height: 100vh;  
+}
+
+.dash-grid{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; 
+    font-family: Calibri;
+    height: 100%;
+    padding: 7%;
+}
+
+.search_img{
+   display: flex;
+   flex-direction:column;
+   height: 100vh;
+}
+
+.book_img{
+     color: white;
+     font-size: 20px;
+}
+
+.search_text{
+    color: grey;
+    margin-top: 15px;
+}
+
+.search_input{
+    display: flex;
+    flex-direction: row;
+    height: 350vh;
+}

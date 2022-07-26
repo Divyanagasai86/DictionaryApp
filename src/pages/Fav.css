@@ -1,0 +1,13 @@
+.content-page{
+    --background:#1e1b27!important;
+    height: 100vh;  
+}
+
+.dash-grid{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; 
+    font-family: Calibri;
+    height: 100%;
+    padding: 7%;
+}
