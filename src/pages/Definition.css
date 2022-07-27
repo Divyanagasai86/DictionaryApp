@@ -14,10 +14,11 @@
 
 .cardcontent{
     --background:#272333!important;
-    height: 30px;
+    height: 100px;
     width: 100%;
-    padding: 10%;
+    padding: 7%;
     margin-bottom: auto;
+    justify-content: center;
 }
 
 .def_con {
@@ -27,13 +28,14 @@
 
 .def_text{
     font-size: 20px;
+    margin-bottom:20px;
+    text-transform: capitalize;
 }
 
 .play-icon{
     color:#953cd0;
-    margin-bottom: 22px;
-    height: 60px;
-   
+    margin-bottom: 20px;
 }
+
 
 

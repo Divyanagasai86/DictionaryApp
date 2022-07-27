@@ -27,7 +27,9 @@ const Find = () => {
     const history = useHistory()
 
     const searchInput = (e) => {
-          history.push('/Definition')
+        const trimedWord = word.trim().toLowerCase();
+        if(!trimedWord || trimedWord.split(' ').length >1) return;
+          history.push(`/search/${word}`)
           setWord("");
     }
     return (

@@ -14,15 +14,25 @@ import {
     IonGrid,
     IonCard,
     IonText,
-    useIonAlert,
-    useIonRouter,
-    IonAvatar, IonImg, IonInput
+   
 } from "@ionic/react";
 import './Definition.css';
-import { useParams } from 'react-router-dom';
-import { heart, personCircleOutline, search, statsChart, playOutline, arrowBack, bookOutline } from 'ionicons/icons';
+import {useEffect} from 'react';
+import { useHistory, useParams } from 'react-router-dom';
+import axios from 'axios';
+import { heart, personCircleOutline, search, statsChart, caretForwardCircleOutline, arrowBack, bookOutline } from 'ionicons/icons';
 const Definition = () => {
-    const { word } = useParams();
+    const {word} = useParams();
+    const history = useHistory();
+    
+    useEffect(() => {
+        const fetchDefinition = async () => {
+        const response = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
+        console.log(response.data);
+    }
+    fetchDefinition();
+    }, [])
+    
     return (
         <IonPage>
             <IonToolbar color="dark">
@@ -48,19 +58,19 @@ const Definition = () => {
                     <IonCard className="cardcontent ion-margin">
                         <IonRow className="def_con ">
                            <IonCol>
-                           <IonText color="white" className="def_text">Hii</IonText>
+                           <IonText  color="white" className="def_text">{word}</IonText>
                            </IonCol>
-                           <IonCol><IonButton >
+                           <IonCol><IonButton fill="clear">
                                 <IonIcon
-                                    icon={playOutline}
+                                    icon={caretForwardCircleOutline}
                                     style={{ float: "right", fontSize: "20px" }}
                                      className="play-icon">
                                 </IonIcon>
                             </IonButton></IonCol>
-                            
-                            
                         </IonRow>
                     </IonCard>
+                    
+                  
                 </IonGrid>
             </IonContent>
             <IonTabBar slot="bottom" color="dark">

@@ -150,7 +150,7 @@ const App = () => {
             <Route exact path="/Favourites">
               <Favourites />
             </Route>
-            <Route exact path="/Definition">
+            <Route exact path="/search/:word">
               <Definition />
             </Route>
           </IonRouterOutlet>
