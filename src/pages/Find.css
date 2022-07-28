@@ -33,3 +33,7 @@
     flex-direction: row;
     height: 350vh;
 }
+
+.dash-btn{
+    --background: #953CCF;
+}

@@ -1,37 +1,22 @@
-import {
-    IonContent,
-    IonHeader,
-    IonPage,
-    IonToolbar,
-    IonTitle,
-    IonIcon,
-    IonRow,
-    IonCol,
-    IonLabel,
-    IonTabButton,
-    IonTabBar,
-    IonButton,
-    IonGrid,
-    IonCard,
-    IonText,
-    useIonAlert,
-    useIonRouter,
-    IonAvatar, IonImg, IonInput
-} from "@ionic/react";
+import { IonButton, IonCol, IonContent, IonGrid, IonTabButton,IonIcon,IonText,IonTabBar, IonPage, IonRow, IonSearchbar, IonTitle, IonToolbar } from '@ionic/react';
+import { NoSearch } from '../components/NoSearch';
+import { NoResultsWordCard, WordCard } from '../components/WordCard';
+import { WordStore } from '../store';
+import { searchWord } from '../utils';
 import './Find.css';
 import { useState } from 'react';
-import {useHistory} from 'react-router-dom';
-import { heart, personCircleOutline, search, statsChart, arrowBack,bookOutline } from 'ionicons/icons';
+import { heart, personCircleOutline, search, statsChart, arrowBack, bookOutline } from 'ionicons/icons';
 const Find = () => {
-    const [word,setWord] = useState("");
-    const history = useHistory()
+    const [searchTerm, setSearchTerm] = useState("");
+    const [searchResult, setSearchResult] = useState(false);
+    const performSearch = async () => {
 
-    const searchInput = (e) => {
-        const trimedWord = word.trim().toLowerCase();
-        if(!trimedWord || trimedWord.split(' ').length >1) return;
-          history.push(`/search/${word}`)
-          setWord("");
+        const result = searchTerm !== "" ? await searchWord(searchTerm) : undefined;
+        setTimeout(() => setSearchResult(result === undefined ? "none" : result), 250);
+        WordStore.update(s => { s.searchCount++ });
     }
+
+
     return (
         <IonPage>
             <IonToolbar color="dark">
@@ -46,36 +31,35 @@ const Find = () => {
             </IonToolbar>
             <IonContent fullscreen className="content-page">
                 <IonGrid className="dash-grid ">
-                    <IonRow className="search_img">
-                        <IonLabel className="book_img"> Search for a word in the English language</IonLabel>
-                        <IonText className="search_text">This app will give you word meaninigs, phonetics, origin and also an audio clip so you can hear what it sounds like.</IonText>
-                    </IonRow>
-                    <IonRow className="search_input">
+                    <IonRow className="ion-align-items-center">
                         <IonCol size="9">
-                        <IonInput className="logininput" type="search" value={word}
-                        onIonChange={ e => setWord(e.target.value) }
-                            placeholder="Search your Word">
-                    </IonInput>
+                            <IonSearchbar animated value={searchTerm} onIonChange={e => setSearchTerm(e.target.value)} />
                         </IonCol>
-                        <IonCol size="2">
-                        <IonButton className="dash-btn" 
-                          onClick={searchInput}
-                           value={ word } >
-                            Search
-                            </IonButton>
+
+                        <IonCol size="1">
+                            <IonButton className="dash-btn" onClick={performSearch}>Search</IonButton>
                         </IonCol>
                     </IonRow>
+
+                    {(searchResult && searchResult !== "none") &&
+
+                        <WordCard word={searchResult} />
+                    }
+
+                    {(searchResult && searchResult === "none") &&
+
+                        <NoResultsWordCard word={searchResult} />
+                    }
+
+                    {!searchResult && <NoSearch />}
                 </IonGrid>
             </IonContent>
             <IonTabBar slot="bottom" color="dark">
                 <IonTabButton tab="dashboard" href="/dashboard" className="icon-color">
                     <IonIcon icon={statsChart} />
                 </IonTabButton>
-                <IonTabButton tab="search" href="/find"  className="icon-color">
+                <IonTabButton tab="search" href="/find" className="icon-color">
                     <IonIcon icon={search} />
-                </IonTabButton>
-                <IonTabButton tab="Definition" href="/definition" className="icon-color" >
-                    <IonIcon icon={bookOutline} />
                 </IonTabButton>
                 <IonTabButton tab="favourites" href="/favourites" className="icon-color" >
                     <IonIcon icon={heart} />

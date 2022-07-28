@@ -86,9 +86,6 @@ const Dashboard = () => {
                 <IonTabButton tab="search" href="/find"  className="icon-color">
                     <IonIcon icon={search} />
                 </IonTabButton>
-                <IonTabButton tab="Definition" href="/definition" className="icon-color" >
-                    <IonIcon icon={bookOutline} />
-                </IonTabButton>
                 <IonTabButton tab="favourites" href="/favourites" className="icon-color" >
                     <IonIcon icon={heart} />
                 </IonTabButton>

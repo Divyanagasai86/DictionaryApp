@@ -30,7 +30,6 @@ import Dashboard from './pages/Dashboard';
 import Signup from './pages/Signup';
 import Profile from './pages/profile';
 import Favourites from './pages/Favourites';
-import Definition from './pages/Definition';
 import { Browser } from '@capacitor/browser';
 import { App as app } from '@capacitor/app';
 import { useEffect, useState } from 'react';
@@ -149,9 +148,6 @@ const App = () => {
             </Route>
             <Route exact path="/Favourites">
               <Favourites />
-            </Route>
-            <Route exact path="/search/:word">
-              <Definition />
             </Route>
           </IonRouterOutlet>
         </IonReactRouter>
